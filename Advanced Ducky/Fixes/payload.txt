@@ -1,0 +1,94 @@
+REM AUTHOR KIERAN HUMAN
+DELAY 1000
+GUI r
+DELAY 1000
+STRING powershell -Command "Start-Process powershell -ArgumentList 'Add-MpPreference -ExclusionPath ''C:\Users\admin\Documents'' ' -Verb RunAs"
+ENTER
+DELAY 1000
+ALT y
+
+DELAY 2000
+GUI r
+DELAY 1000
+STRING cmd
+ENTER
+DELAY 1000
+STRING mkdir "C:\Users\admin\Documents\ztw documents\Alex"
+ENTER
+DELAY 1000
+STRING echo https://github.com/ThreatLockerNickCottrell/ZTW2025/tree/main/Metasploit > "C:\Users\admin\Documents\ztw documents\Alex\link.txt"
+ENTER
+
+
+DELAY 2000
+REM Open the Run dialog
+WINDOWS r
+DELAY 500
+REM Type PowerShell
+STRING powershell
+DELAY 500
+REM Run PowerShell as Administrator
+CTRL-SHIFT ENTER
+DELAY 1000
+REM Confirm the UAC prompt (you may need to adjust this part depending on your system settings)
+ALT y
+
+DELAY 1000
+STRING $ProfileXml = @"
+ENTER
+STRING <WLANProfile xmlns="http://www.microsoft.com/networking/WLAN/profile/v1">
+ENTER
+STRING     <name>ZTW Lab</name>
+ENTER
+STRING     <SSIDConfig>
+ENTER
+STRING         <SSID>
+ENTER
+STRING             <name>ZTW Lab</name>
+ENTER
+STRING         </SSID>
+ENTER
+STRING     </SSIDConfig>
+ENTER
+STRING     <connectionType>ESS</connectionType>
+ENTER
+STRING     <connectionMode>manual</connectionMode>
+ENTER
+STRING     <MSM>
+ENTER
+STRING         <security>
+ENTER
+STRING             <authEncryption>
+ENTER
+STRING                 <authentication>WPA2PSK</authentication>
+ENTER
+STRING                 <encryption>AES</encryption>
+ENTER
+STRING                 <useOneX>false</useOneX>
+ENTER
+STRING             </authEncryption>
+ENTER
+STRING             <sharedKey>
+ENTER
+STRING                 <keyType>passPhrase</keyType>
+ENTER
+STRING                 <protected>false</protected>
+ENTER
+STRING                 <keyMaterial>ZTW2025!</keyMaterial>
+ENTER
+STRING             </sharedKey>
+ENTER
+STRING         </security>
+ENTER
+STRING     </MSM>
+ENTER
+STRING </WLANProfile>
+ENTER
+STRING "@
+ENTER
+STRING Set-Content -Path "C:\Wi-Fi-Profile.xml" -Value $ProfileXml
+ENTER
+STRING netsh wlan add profile filename="C:\Wi-Fi-Profile.xml"
+ENTER
+STRING netsh wlan connect name="ZTW Lab"
+ENTER

